@@ -49,8 +49,11 @@
 
             
             if (valid) {
-                alert('Login successful!'); 
-                window.location.href = 'home.html'; 
+                document.getElementById('notification').innerText = 'Login successful!';
+                document.getElementById('notification').style.display = 'block'; 
+                setTimeout(() => {
+                    window.location.href = 'home.html'; 
+                }, 2000);
             }
         });
     </script>
