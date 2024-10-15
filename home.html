@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage with Navbar and Search Bar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        .search-container {
+            margin-left: auto;
+        }
+        .search-container input[type="text"] {
+            padding: 5px;
+            border: none;
+            border-radius: 3px;
+        }
+        .search-container input[type="submit"] {
+            padding: 5px 10px;
+            background-color: #555;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .search-container input[type="submit"]:hover {
+            background-color: #777;
+        }
+        .content {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="search-container">
+            <form action="#" method="GET">
+                <input type="text" placeholder="Search..." name="search">
+                <input type="submit" value="Search">
+            </form>
+        </div>
+    </nav>
+    <div class="content">
+        <h1>Welcome to my Web Page!</h1>
+        <p>This is a simple homepage with a navigation bar and a search bar on the right. You can add your content here.</p>
+    </div>
+</body>
+</html>

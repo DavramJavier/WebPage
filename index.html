@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="web.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>LOGIN</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <div class="error" id="usernameError"></div>
+            <input type="password" id="password" placeholder="Password" required>
+            <div class="error" id="passwordError"></div>
+            <button class="log" type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+           
+            document.getElementById('usernameError').innerText = '';
+            document.getElementById('passwordError').innerText = '';
+
+         
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+           
+            const validUsername = "yukii";
+            const validPassword = "asdasd123";
+
+           
+            let valid = true;
+
+            if (username !== validUsername) {
+                document.getElementById('usernameError').innerText = 'Invalid username.';
+                valid = false;
+            }
+
+            if (password !== validPassword) {
+                document.getElementById('passwordError').innerText = 'Invalid password.';
+                valid = false;
+            }
+
+            
+            if (valid) {
+                alert('Login successful!'); 
+                window.location.href = 'home.html'; 
+            }
+        });
+    </script>
+</body>
+</html>
