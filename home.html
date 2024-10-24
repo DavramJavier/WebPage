@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage with Navbar and Search Bar</title>
+    <title>Health Research Hub</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background: linear-gradient(135deg, #74ebd5, #9face6); /* Gradient background */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         nav {
             background-color: #333;
@@ -53,16 +57,76 @@
             background-color: #777;
         }
         .content {
+            flex: 1;
             padding: 20px;
             text-align: center;
         }
         h1 {
             margin: 0;
         }
-        .Welcome{
+        .welcome {
             font-weight: bold;
             font-size: xx-large;
             color: rgb(0, 0, 0);
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+            width: 100%;
+            position: relative;
+        }
+        .marquee {
+            display: inline-block;
+            animation: marquee 10s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .images {
+            margin: 40px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .images img {
+            width: 200px; /* Adjust width as needed */
+            height: auto;
+            margin: 0 15px; /* Space between images */
+            border-radius: 10px; /* Optional styling */
+        }
+        .resources {
+            margin-top: 40px;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .resources h2 {
+            color: #333;
+        }
+        .resources ul {
+            padding-left: 20px;
+        }
+        .resources ul li {
+            margin-bottom: 10px;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
         }
     </style>
 </head>
@@ -70,9 +134,9 @@
     <nav>
         <ul>
             <li><a href="home.html">Home</a></li>
-            <li><a href="web.html">About</a></li>
-            <li><a href="services">Services</a></li>
-            <li><a href="contact">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
         <div class="search-container">
             <form action="#" method="GET">
@@ -82,10 +146,35 @@
         </div>
     </nav>
     <div class="content">
+        <div class="welcome">
+            <div class="marquee">Welcome to the Health Research Hub! &nbsp;&nbsp;</div>
+        </div>
+        <p>This platform is dedicated to providing free resources for health research. Explore various topics and find reliable information!</p>
+        <div class="images">
+            <img src="https://imgs.search.brave.com/hIWsMCvdHWxtBTcfxRPjXTcNcXd_giaGRIm2-rI_dx4/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNjAz/OTA2NDg0L3Bob3Rv/L3ZlZ2V0YWJsZS1z/YWxhZC5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9ZjdCbkpS/Q3FMS2FqX0RFUUIx/U0I3MV9lUlQ4eTFY/UlA1MmREeVlSU3h1/RT0" alt="Nutrition">
+            <img src="https://imgs.search.brave.com/LKj49xCCkSPgHpceoogcvnvAS4GU3DPTmk7XeOx5vCk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTQx/Nzc3OTEyOS9waG90/by9maXRuZXNzLWdp/cmwtZG9pbmctbHVu/Z2UtaW4tdXJiYW4t/cGFyay5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9enBSSFhS/NWEtanM3aFRPUnBs/UzZDS3hjWmZVMjhm/YjVURmNzVTE4UnRJ/OD0" alt="Exercise">
+            <img src="https://imgs.search.brave.com/c0QeC-yVa2o5ImXiWKBzAJjoUWeTLDVjCoXvJFdZ7fI/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9t/YW4tc2xlZXBpbmct/YmVkLXdpdGgtc29m/dC1kYXlsaWdodF80/OTYxNjktMTA4NS5q/cGc_c2VtdD1haXNf/aHlicmlk" alt="Mental Health">
+        </div>
 
-        <marquee class="Welcome" behavior="slide" direction="left">  Welcome to my Web Page!</marquee>
-       
-        <p>This is a simple homepage with a navigation bar and a search bar on the right. You can add your content here.</p>
+        <div>
+            <a href="exercise.html" class="button">Learn More About Exercise</a>
+            <a href="nutrition.html" class="button">Learn More About Nutrition</a>
+            <a href="mental_health.html" class="button">Learn More About Mental Health</a>
+        </div>
+
+        <div class="resources">
+            <h2>Useful Resources</h2>
+            <ul>
+                <li><a href="https://www.who.int" target="_blank">World Health Organization</a> - Global health information and guidelines.</li>
+                <li><a href="https://www.cdc.gov" target="_blank">Centers for Disease Control and Prevention</a> - Health and safety information.</li>
+                <li><a href="https://www.ncbi.nlm.nih.gov" target="_blank">National Center for Biotechnology Information</a> - Biomedical and genomic information.</li>
+                <li><a href="https://www.healthline.com" target="_blank">Healthline</a> - Health articles and news.</li>
+                <li><a href="https://www.medlineplus.gov" target="_blank">MedlinePlus</a> - Trusted health information from the National Library of Medicine.</li>
+            </ul>
+        </div>
     </div>
+    <footer>
+        <p>&copy; 2024 Health Research Hub. All rights reserved.</p>
+    </footer>
 </body>
 </html>
