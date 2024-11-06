@@ -13,11 +13,12 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            overflow-x: hidden;
         }
         nav {
             background-color: #333;
             color: white;
-            padding: 1em;
+            padding: 5px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -88,10 +89,10 @@
             justify-content: center;
         }
         .images img {
-            width: 200px; /* Adjust width as needed */
+            width: 200px;
             height: auto;
-            margin: 0 15px; /* Space between images */
-            border-radius: 10px; /* Optional styling */
+            margin: 0 15px;
+            border-radius: 10px;
         }
         .resources {
             margin-top: 40px;
@@ -112,7 +113,7 @@
         .button {
             margin-top: 20px;
             padding: 10px 20px;
-            background-color: #4CAF50; /* Green */
+            background-color: #4CAF50;
             color: white;
             border: none;
             border-radius: 5px;
@@ -124,9 +125,45 @@
         }
         footer {
             text-align: center;
-            padding: 10px;
+            padding: 1px;
+            height: 40px;
             background-color: #333;
             color: white;
+        }
+
+        /* New styles for the sliding sections */
+        .sliding-section {
+            display: none;
+            background-color: white;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100vh;
+            overflow-y: auto;
+            animation: slideDown 0.5s forwards;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        .close-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative;
+            top: 10px;
+            right: 10px;
         }
     </style>
 </head>
@@ -134,34 +171,33 @@
     <nav>
         <ul>
             <li><a href="home.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#" id="about-link">About</a></li>
+            <li><a href="#" id="services-link">Services</a></li>
+            <li><a href="#" id="contact-link">Contact</a></li>
         </ul>
         <div class="search-container">
-            <form action="#" method="GET">
-                <input type="text" placeholder="Search..." name="search">
+            <form onsubmit="return handleSearch(event)">
+                <input type="text" placeholder="Search (1, 2, or 3)" name="search" id="search-input">
                 <input type="submit" value="Search">
             </form>
         </div>
     </nav>
+
     <div class="content">
         <div class="welcome">
             <div class="marquee">Welcome to the Health Research Hub! &nbsp;&nbsp;</div>
         </div>
-        <p>This platform is dedicated to providing free resources for health research. Explore various topics and find reliable information!</p>
+        <p></p>
         <div class="images">
-            <img src="https://imgs.search.brave.com/hIWsMCvdHWxtBTcfxRPjXTcNcXd_giaGRIm2-rI_dx4/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNjAz/OTA2NDg0L3Bob3Rv/L3ZlZ2V0YWJsZS1z/YWxhZC5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9ZjdCbkpS/Q3FMS2FqX0RFUUIx/U0I3MV9lUlQ4eTFY/UlA1MmREeVlSU3h1/RT0" alt="Nutrition">
-            <img src="https://imgs.search.brave.com/LKj49xCCkSPgHpceoogcvnvAS4GU3DPTmk7XeOx5vCk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTQx/Nzc3OTEyOS9waG90/by9maXRuZXNzLWdp/cmwtZG9pbmctbHVu/Z2UtaW4tdXJiYW4t/cGFyay5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9enBSSFhS/NWEtanM3aFRPUnBs/UzZDS3hjWmZVMjhm/YjVURmNzVTE4UnRJ/OD0" alt="Exercise">
-            <img src="https://imgs.search.brave.com/c0QeC-yVa2o5ImXiWKBzAJjoUWeTLDVjCoXvJFdZ7fI/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9t/YW4tc2xlZXBpbmct/YmVkLXdpdGgtc29m/dC1kYXlsaWdodF80/OTYxNjktMTA4NS5q/cGc_c2VtdD1haXNf/aHlicmlk" alt="Mental Health">
+            <img src="https://assets.clevelandclinic.org/transform/LargeFeatureImage/26568096-7fcc-4713-898d-ca1ed6c84895/exerciseHowOften-944015592-770x533-1_jpg" alt="Nutrition">
+            <img src="https://thumb.ac-illust.com/2d/2dab37846920480b73ace252514fa8b1_w.jpeg" alt="Exercise">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOQk-62kJRNorQyQZgi8ZcbKKcSJbFkmiIjQ&s" alt="Mental Health">
         </div>
-
         <div>
             <a href="exercise.html" class="button">Learn More About Exercise</a>
             <a href="nutrition.html" class="button">Learn More About Nutrition</a>
             <a href="mental_health.html" class="button">Learn More About Mental Health</a>
         </div>
-
         <div class="resources">
             <h2>Useful Resources</h2>
             <ul>
@@ -173,8 +209,64 @@
             </ul>
         </div>
     </div>
+
+    <!-- Sliding Sections -->
+    <div class="sliding-section" id="about-section">
+        <button class="close-btn" onclick="closeSection('about-section')">Close</button>
+        <h2>About Health Research Hub</h2>
+        <p>Welcome to the Health Research Hub, your dedicated platform for advancing healthcare knowledge and innovation. 
+            Whether you're a researcher, healthcare professional, or part of the industry, this hub connects you to the latest research, valuable resources, and collaborative opportunities. Explore cutting-edge studies, engage with experts, and stay updated on the latest trends shaping the future of health and wellness.</p>
+    </div>
+
+    <div class="sliding-section" id="services-section">
+        <button class="close-btn" onclick="closeSection('services-section')">Close</button>
+        <h2>Our Services</h2>
+        <p>We offer a wide range of services related to health research, designed to support your work and drive progress in healthcare. From access to the latest research and expert consultations to collaboration opportunities and data analysis, our services are tailored to help you advance your projects, solve challenges, and stay at the forefront of health innovation</p>
+    </div>
+
+    <div class="sliding-section" id="contact-section">
+        <button class="close-btn" onclick="closeSection('contact-section')">Close</button>
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need assistance, feel free to reach out! 
+            Here is our Contact Number: #09463729255.
+        </p>
+    </div>
+
     <footer>
         <p>&copy; 2024 Health Research Hub. All rights reserved.</p>
     </footer>
+
+    <script>
+        // JavaScript to handle the sliding section effects
+        document.getElementById("about-link").onclick = function() {
+            document.getElementById("about-section").style.display = "block";
+        };
+        document.getElementById("services-link").onclick = function() {
+            document.getElementById("services-section").style.display = "block";
+        };
+        document.getElementById("contact-link").onclick = function() {
+            document.getElementById("contact-section").style.display = "block";
+        };
+
+        function closeSection(sectionId) {
+            document.getElementById(sectionId).style.display = "none";
+        }
+
+        // Function to handle the search input and redirect
+        function handleSearch(event) {
+            event.preventDefault();
+            const searchQuery = document.getElementById('search-input').value.trim();
+
+            if (searchQuery === '1') {
+                window.location.href = 'exercise.html';
+            } else if (searchQuery === '2') {
+                window.location.href = 'nutrition.html';
+            } else if (searchQuery === '3') {
+                window.location.href = 'mental_health.html';
+            } else {
+                alert('Invalid search input. Please enter 1, 2, or 3.');
+            }
+        }
+    </script>
 </body>
 </html>
